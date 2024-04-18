@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/oski-site/static/css/main.66556ee1.css",
-    "main.js": "/oski-site/static/js/main.287a674a.js",
+    "main.js": "/oski-site/static/js/main.a3da18b8.js",
     "static/media/Montserrat.ttf": "/oski-site/static/media/Montserrat.087334ca601e288c996e.ttf",
     "index.html": "/oski-site/index.html",
     "main.66556ee1.css.map": "/oski-site/static/css/main.66556ee1.css.map",
-    "main.287a674a.js.map": "/oski-site/static/js/main.287a674a.js.map"
+    "main.a3da18b8.js.map": "/oski-site/static/js/main.a3da18b8.js.map"
   },
   "entrypoints": [
     "static/css/main.66556ee1.css",
-    "static/js/main.287a674a.js"
+    "static/js/main.a3da18b8.js"
   ]
 }
