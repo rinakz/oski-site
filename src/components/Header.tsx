@@ -1,14 +1,13 @@
-import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import { Toolbar, Typography } from "@mui/material";
+import { Toolbar } from "@mui/material";
+import { IconSibkaHeader } from "../icons/IconSibkaHeader";
+import { IconPhoneButton } from "../icons/IconPhoneButton";
+import stls from "./styles/components/Header.module.sass";
 
 export function Header() {
   const navigate = useNavigate();
-
-  console.log(window.location);
 
   const navItemsPage = [
     { id: 1, name: "Сервис", link: "#service" },
@@ -18,23 +17,28 @@ export function Header() {
   ];
 
   return (
-    <AppBar sx={{position: 'static', background: 'white'}} component="nav">
-      <Toolbar>
-        <Typography
-          variant="h4"
-          component="div"
-          sx={{ flexGrow: 1, color: 'black', display: { xs: "none", sm: "block" } }}
-        >
-          OSKI
-        </Typography>
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
-          {navItemsPage.map((item: any) => (
+    <div className={stls.header}>
+      <AppBar className={stls.appbar} component="nav">
+        <Toolbar className={stls.toolbar}>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <IconSibkaHeader />
+            <h1 style={{ fontSize: "60px" }}>OSKI</h1>
+          </div>
+
+          <Box sx={{ display: { sm: "block" } }}>
+            <div className={stls.buttonPhone}>
+              <a color="inherit" href="tel:+79660060596">
+                <IconPhoneButton />
+              </a>
+            </div>
+            {/* {navItemsPage.map((item: any) => (
             <a key={item.id} href={item.link ? `../${item.link}` : ""}>
-              <Button sx={{color: 'black'}}>{item.name}</Button>
+              <Button sx={{ color: "black" }}>{item.name}</Button>
             </a>
-          ))}
-        </Box>
-      </Toolbar>
-    </AppBar>
+          ))} */}
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }

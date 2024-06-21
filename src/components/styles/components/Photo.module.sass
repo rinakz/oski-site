@@ -1,0 +1,44 @@
+@use '../mixins' as m
+
+.elips
+    width: 40px
+    height: 40px
+    background: #FEAE11
+    border-radius: 50%
+    @include m.media(phone)
+        width: 20px
+        height: 20px
+
+.titleContainer
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 32px
+    h1
+        text-align: center
+        font-size: 100px
+        @include m.media(phone)
+            font-size: 48px
+        @include m.media(tablet)
+            font-size: 58px
+
+
+.slider 
+    margin:0 20px
+    overflow:"hidden"
+    padding:2rem 0
+
+.slider img 
+    width: 100%
+    border-radius:10px
+
+.react-multi-carousel-list 
+    padding: 0rem 0 2rem 0
+
+
+.custom-dot-list-style button
+    border: none
+    background: rgb(255, 68, 68)
+
+.react-multi-carousel-dot.react-multi-carousel-dot--active button
+    background: rgb(255, 68, 68) !important

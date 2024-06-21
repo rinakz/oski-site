@@ -1,0 +1,70 @@
+@use '../mixins' as m
+
+.mainContainer
+    display: flex
+    justify-content: space-between
+    width: 100%
+    @include m.media(phone)
+        flex-wrap: wrap
+        gap: 28px
+    .button
+        background: #E95B47
+        padding: 24px 46px
+        color: white
+        border-radius: 50px
+        width: fit-content
+        font-size: 30px
+        gap: 16px
+        &:hover
+            background: #FF644E
+        @include m.media(tablet, laptop, phone)
+            font-size: 18px
+            padding: 12px 24px
+            svg
+                height: 24px
+
+.naming
+    display: flex
+    flex-direction: column
+    gap: 56px
+    padding-top: 60px
+    @include m.media(tablet, laptop, phone)
+        padding-top: 30px
+        gap: 28px
+    @include m.media(phone)
+        svg
+            height: 54px
+    .friend
+        font-size: 31px
+        @include m.media(tablet, laptop, phone)
+            font-size: 18px
+
+
+.iconsContainer
+    display: flex
+    width: 50%
+    gap: 30px
+    justify-content: end
+    @include m.media(phone)
+        width: 100%
+        height: auto
+
+.iconSecond
+    display: flex
+    flex-direction: column
+    align-items: end
+    gap: 30px
+    width: 40%
+    cursor: pointer
+    svg
+        width: -webkit-fill-available
+        height: auto
+
+.mainText
+    font-size: 120px
+    @include m.media(laptop)
+        font-size: 90px
+    @include m.media(tablet)
+        font-size: 68px
+    @include m.media(phone)
+        font-size: 58px

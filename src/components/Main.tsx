@@ -1,87 +1,50 @@
-import { Typography, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import Contacts from "./Contacts";
 import Service from "./Service";
 import Photos from "./Photo";
 import { LayoutPage } from "./general/LayoutPage";
-import useWindowSize from "../hooks/useWindowSize";
-import { useState, useEffect } from "react";
+import { IconOskiMain } from "../icons/IconOskiMain";
+import { IconPawMain } from "../icons/IconPawMain";
+import { IconPawButton } from "../icons/IconPawButton";
+import stls from "./styles/components/Main.module.sass";
+import { IconImageMain } from "../icons/IconImageMain";
+import { IconImageMainSecons } from "../icons/IconImageMainSecons";
+import { IconPawImageMain } from "../icons/IconPawImageMain";
 
 function Main() {
-  const { width, height } = useWindowSize();
-
-  const [mobile, setMobile] = useState(false);
-  const [laptop, setLaptop] = useState(false);
-
-  useEffect(() => {
-    setMobile(width < 600);
-  }, [width]);
-
-  useEffect(() => {
-    setLaptop(width < 900);
-  }, [width]);
-
   return (
     <>
-      <LayoutPage bg="#efefdc">
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            gap: "40px",
-          }}
-        >
-          <Typography
-            variant="h2"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              color: "black",
-              display: "flex",
-              justifyContent: "center",
-              fontSize: mobile ? "54px" : "78px",
-            }}
-          >
-            OSKI SAGARIME KAZOKU
-          </Typography>
-          <Typography
-            variant="h5"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              color: "#515151",
-              display: { xs: "none", sm: "block" },
-            }}
-          >
-            Твой лучший друг :)
-          </Typography>
-          <Button
-            sx={{
-              background: "#ee6a5b",
-              padding: "15px 40px",
-              color: "white",
-              borderRadius: "50px",
-              width: "fit-content",
-            }}
-          >
-            ПОЗНАКОМИТЬСЯ
-          </Button>
-        </div>
-        <div
-          style={{
-            borderRadius: "40px",
-            display: "flex",
-            alignItems: "end",
-            width: '100%',
-            justifyContent: 'flex-end'
-          }}
-        >
-          <img
-            style={{
-              width: mobile ? "200px" : "350px",
-            }}
-            src="/OskiHeader.webp"
-          />
+      <LayoutPage>
+        <div className={stls.mainContainer}>
+          <div className={stls.naming}>
+            <div>
+              <div style={{ display: "flex", alignItems: 'center', gap: "12px" }}>
+                <h1 className={stls.mainText}>OSKI</h1>
+                <IconOskiMain />
+              </div>
+              <div style={{ display: "flex", alignItems: 'center', gap: "12px" }}>
+                <IconPawMain />
+                <h1 className={stls.mainText}>SAGARIME </h1>
+              </div>
+              <div>
+                <h1 className={stls.mainText}>KAZOKU</h1>
+              </div>
+            </div>
+
+            <h2 className={stls.friend}>Твой лучший друг :)</h2>
+            <a href="#contacts">
+              <Button className={stls.button}>
+                ПОЗНАКОМИТЬСЯ <IconPawButton />
+              </Button>
+            </a>
+          </div>
+          <div className={stls.iconsContainer}>
+            <IconImageMain />
+            <div className={stls.iconSecond}>
+              <IconImageMainSecons />
+              <IconPawImageMain />
+            </div>
+          </div>
         </div>
       </LayoutPage>
       <Service />

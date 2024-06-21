@@ -1,0 +1,11 @@
+@use '../mixins' as m
+
+.container
+    padding: 40px 80px
+    min-height: fit-content
+    max-height: 100vh
+    @include m.media(tablet)
+        padding: 12px 48px 
+    @include m.media(phone)
+        padding: 12px 24px 
+        min-height: 100vh
