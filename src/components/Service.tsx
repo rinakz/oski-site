@@ -1,26 +1,11 @@
 import { Typography } from "@mui/material";
 import { LayoutPage } from "./general/LayoutPage";
-import useWindowSize from "../hooks/useWindowSize";
-import { useState, useEffect } from "react";
 import stls from "./styles/components/Service.module.sass";
 import { IconOskiPhoto } from "../icons/IconOskiPhoto";
 import { IconOskiFilm } from "../icons/IconOskiFilm";
 import { IconOskiLife } from "../icons/IconOskiLife";
 
 function Service() {
-  const { width, height } = useWindowSize();
-
-  const [mobile, setMobile] = useState(false);
-  const [laptop, setLaptop] = useState(false);
-
-  useEffect(() => {
-    setMobile(width < 600);
-  }, [width]);
-
-  useEffect(() => {
-    setLaptop(width < 900);
-  }, [width]);
-
   return (
     <LayoutPage style={{ maxHeight: "fit-content" }}>
       <div className={stls.serviceContainer}>
@@ -28,17 +13,13 @@ function Service() {
           <div className={stls.elips} />
           <h1>Сервисы</h1>
         </div>
+
         <div className={stls.cardContainer}>
           <div className={stls.card}>
             <div className={stls.cardPhoto}>
               <IconOskiPhoto />
             </div>
-            <div
-              className={stls.cardInfo}
-              style={{
-                paddingTop: "20px",
-              }}
-            >
+            <div className={stls.cardInfo}>
               <Typography className={stls.title} variant="h5">
                 Модель <br /> для фотосессий
               </Typography>

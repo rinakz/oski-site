@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LayoutPage } from "./general/LayoutPage";
 import stls from "./styles/components/Photo.module.sass";
-import Slider from "./test";
+import Slider from "./Carousel";
 
 export default function Photos() {
   return (
@@ -10,6 +10,7 @@ export default function Photos() {
         <div className={stls.elips} />
         <h1>мой фотоальбом</h1>
       </div>
+
       <Slider />
     </LayoutPage>
   );

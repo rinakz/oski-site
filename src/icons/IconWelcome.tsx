@@ -12,8 +12,8 @@ export const IconWelcome = () => {
       <path d="M425 0H0V616H425V0Z" fill="url(#pattern0_1_32)" />
       <g filter="url(#filter0_d_1_32)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M336.173 355.362L319 348.417L340.461 380.501C348.233 392.12 358.232 402.087 369.885 409.83L377.894 415.151C374.038 437.217 375.526 460.539 383.28 483.232C407.86 555.167 486.101 593.555 558.035 568.975L748.69 503.828C820.625 479.248 859.013 401.008 834.433 329.073C809.853 257.138 731.613 218.75 659.678 243.33L469.023 308.477C440.082 318.366 416.571 336.941 400.406 360.296C379.074 365.305 356.626 363.632 336.173 355.362Z"
           fill="white"
         />
@@ -41,9 +41,9 @@ export const IconWelcome = () => {
           width="539.852"
           height="357.496"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

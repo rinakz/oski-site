@@ -1,5 +1,3 @@
-import stls from "../components/styles/components/Icon.module.sass";
-
 export const IconImageMainSecons = () => {
   return (
     <svg

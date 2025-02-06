@@ -10,14 +10,9 @@ type TypeLayoutPageProps = {
 };
 
 export function LayoutPage({ children, column, style }: TypeLayoutPageProps) {
-  const { width, height } = useWindowSize();
+  const { width } = useWindowSize();
 
-  const [mobile, setMobile] = useState(false);
   const [laptop, setLaptop] = useState(false);
-
-  useEffect(() => {
-    setMobile(width < 500);
-  }, [width]);
 
   useEffect(() => {
     setLaptop(width < 900);

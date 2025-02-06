@@ -1,4 +1,3 @@
-import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./styles.css";
@@ -31,12 +30,12 @@ const images = [
     label:
       "Родился я 20 апреля 2023 года в семье Японских чемпионов. Моя мама Айкэн Сагаримэ Сачико, а папа Кирей Казоку Дайон",
     imgPath: "/OskiSmall.jpg",
-    imgPathSecond: "/Smile.jpg"
+    imgPathSecond: "/Smile.jpg",
   },
-//   {
-//     label: "А еще я очень смешной :)",
-//     imgPath: "/Smile.jpg",
-//   },
+  //   {
+  //     label: "А еще я очень смешной :)",
+  //     imgPath: "/Smile.jpg",
+  //   },
   {
     label:
       "Уже с самого детства я люблю посещать общественные места и находиться среди большого количества людей",
@@ -56,10 +55,10 @@ const images = [
     imgPath: "/OskiTver.jpg",
     imgPathSecond: "/Mytischi.jpg",
   },
-//   {
-//     label: "Люблю поваляться в песке и позировать",
-//     imgPath: "/Mytischi.jpg",
-//   },
+  //   {
+  //     label: "Люблю поваляться в песке и позировать",
+  //     imgPath: "/Mytischi.jpg",
+  //   },
   {
     label: "И они меня любят",
     imgPath: "/OskiFace.jpg",
