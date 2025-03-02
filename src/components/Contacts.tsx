@@ -18,7 +18,6 @@ function Contacts() {
           <div className={stls.iconWelcome}>
             <IconWelcome />
           </div>
-
           <div className={stls.info}>
             <IconContact />
             <div className={stls.iconPaw}>
