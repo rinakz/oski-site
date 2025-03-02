@@ -1,3 +1,4 @@
+import Chat from "./components/Chat";
 import { Header } from "./components/Header";
 import Main from "./components/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -9,6 +10,7 @@ export function App() {
       <main>
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/Chat" element={<Chat />} />
         </Routes>
       </main>
     </BrowserRouter>

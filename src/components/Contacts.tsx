@@ -1,6 +1,7 @@
 import { IconContact } from "../icons/IconContact";
 import { IconPawImageMain } from "../icons/IconPawImageMain";
 import { IconWelcome } from "../icons/IconWelcome";
+import Footer from "./Footer";
 import Maps from "./Maps";
 import { LayoutPage } from "./general/LayoutPage";
 import stls from "./styles/components/Contact.module.sass";
@@ -29,10 +30,7 @@ function Contacts() {
           <Maps />
         </div>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <p>© 2025 Shiba-inu.moscow</p>
-        <p>г. Москва</p>
-      </div>
+      <Footer />
     </LayoutPage>
   );
 }

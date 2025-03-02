@@ -3,9 +3,12 @@
 .buttonPhone
     cursor: pointer
     &:hover
-        rect 
+        path
             fill: #FF644E
-    
+        g
+            path
+                fill: #FFFCF5
+
 .header
     .appbar
         position: static
@@ -13,7 +16,6 @@
         height: 112px
         @include m.media(tablet, laptop, phone)
             height: auto
-
 
 .toolbar
     display: flex
@@ -23,7 +25,6 @@
         padding: 12px 48px !important
     @include m.media(phone)
         padding: 12px 24px !important
-
 
     svg
         @include m.media(tablet)
