@@ -1,16 +1,7 @@
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
+import jsonData from "../address.json";
 
 export default function ChatMap() {
-  const placeMarks = [
-    {
-      image: "/sibka.png",
-      geometry: [55.927488, 37.724571],
-      properties: {
-        balloonContent: "reenakz",
-      },
-    },
-  ];
-
   return (
     <div
       style={{
@@ -31,7 +22,7 @@ export default function ChatMap() {
           }}
           modules={["control.ZoomControl"]}
         >
-          {placeMarks.map((el, idx) => (
+          {jsonData.map((el, idx) => (
             <Placemark
               key={idx}
               modules={["geoObject.addon.balloon"]}
