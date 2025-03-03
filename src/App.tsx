@@ -1,11 +1,11 @@
 import Chat from "./components/Chat";
 import { Header } from "./components/Header";
 import Main from "./components/Main";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 
 export function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <main>
         <Routes>
@@ -13,6 +13,6 @@ export function App() {
           <Route path="/Chat" element={<Chat />} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
