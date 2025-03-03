@@ -16,8 +16,8 @@ export default function ChatMap() {
           height="88vh"
           width="100%"
           defaultState={{
-            center: [55.924858, 37.755851],
-            zoom: 13,
+            center: [55.928322, 37.780288],
+            zoom: 12,
             controls: ["zoomControl"],
           }}
           modules={["control.ZoomControl"]}
