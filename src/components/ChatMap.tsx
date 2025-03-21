@@ -8,7 +8,7 @@ export default function ChatMap() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        marginTop: "12px",
+        marginTop: "112px",
       }}
     >
       <YMaps>

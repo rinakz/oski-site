@@ -1,10 +1,10 @@
 import { Header } from "./components/Header";
-import Main from "./components/Main";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { PATH } from "./routes/PATH";
 import Map from "./components/Map";
 import { Auth } from "./components/auth/auth";
 import { Profile } from "./components/profile/profile";
+import Main from "./components/main/main";
 
 export function App() {
   return (

@@ -13,9 +13,19 @@
                 fill: #FFFCF5
 
 .header
+    width: 100%
+    position: fixed
+    z-index: 2
+    top: 0
     .appbar
         position: static
-        background: #EEEADE
+        background: transparent
+        height: 112px
+        @include m.media(tablet, laptop, phone)
+            height: auto
+    .appbarScroll
+        position: static
+        background: rgba(238, 234, 222, 0.7)
         height: 112px
         @include m.media(tablet, laptop, phone)
             height: auto
@@ -27,7 +37,7 @@
     @include m.media(tablet)
         padding: 12px 48px !important
     @include m.media(phone)
-        padding: 12px 24px !important
+        padding: 8px !important
 
     svg
         @include m.media(tablet)

@@ -44,7 +44,7 @@ export default function Map() {
             gap: "32px",
             alignItems: "center",
             width: "100%",
-            marginTop: "60px",
+            marginTop: "112px",
           }}
         >
           <Typography variant="h5">Введите кодовое слово:</Typography>

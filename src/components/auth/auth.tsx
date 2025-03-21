@@ -29,9 +29,16 @@ export const Auth = () => {
   });
   return (
     <LayoutPage>
-      <div style={{width: '-webkit-fill-available', height: 'fit-content', maxWidth: '500px'}} >
-      в разработке...
-        <img width='100%' src="sticker.gif" alt="in-processing" />
+      <div
+        style={{
+          width: "-webkit-fill-available",
+          height: "fit-content",
+          maxWidth: "500px",
+          marginTop: "112px",
+        }}
+      >
+        в разработке...
+        <img width="100%" src="sticker.gif" alt="in-processing" />
       </div>
       {/* <form
         style={{

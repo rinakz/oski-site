@@ -7,16 +7,29 @@ import { useNavigate } from "react-router-dom";
 import { IconPlacemark } from "../icons/IconPlacemark";
 import { PATH } from "../routes/PATH";
 import { IconProfile } from "../icons/IconProfile";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Header() {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+  const [scroll, setScroll] = useState(0);
 
+  const handleScroll = () => {
+    setScroll(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className={stls.header}>
-      <AppBar className={stls.appbar} component="nav">
+      <AppBar
+        className={scroll ? stls.appbarScroll : stls.appbar}
+        component="nav"
+      >
         <Toolbar className={stls.toolbar}>
           <div
             onClick={() => navigate(PATH.Home)}
@@ -28,11 +41,12 @@ export function Header() {
 
           <Box sx={{ display: { sm: "block" } }}>
             <div style={{ display: "flex", gap: "8px" }}>
-              <div 
+              <div
                 onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)} 
+                onMouseLeave={() => setIsHovered(false)}
                 className={stls.buttonProfile}
-                onClick={() => navigate(PATH.Profile)}>
+                onClick={() => navigate(PATH.Profile)}
+              >
                 <IconProfile isHovered={isHovered} />
               </div>
               <div
