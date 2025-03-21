@@ -19,8 +19,12 @@ export default function Community() {
         >
           <div>
             <div className={stls.serviceTitle}>
-              <h1>Все сибы на одной карте!</h1>
-              <img width="300px" src="speaking.png" alt="community" />
+              <h1 style={{ minWidth: "40%" }}>Все сибы на одной карте!</h1>
+              <img
+                style={{ width: "-webkit-fill-available", maxHeight: "400px" }}
+                src="speaking.png"
+                alt="community"
+              />
             </div>
             <p>
               📌 Присоединяйся к нашему сообществу любителей сиба-ину!
