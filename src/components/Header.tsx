@@ -6,9 +6,13 @@ import stls from "./styles/components/Header.module.sass";
 import { useNavigate } from "react-router-dom";
 import { IconPlacemark } from "../icons/IconPlacemark";
 import { PATH } from "../routes/PATH";
+import { IconProfile } from "../icons/IconProfile";
+import { useState } from "react";
 
 export function Header() {
   const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
+
 
   return (
     <div className={stls.header}>
@@ -24,6 +28,13 @@ export function Header() {
 
           <Box sx={{ display: { sm: "block" } }}>
             <div style={{ display: "flex", gap: "8px" }}>
+              <div 
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)} 
+                className={stls.buttonProfile}
+                onClick={() => navigate(PATH.Profile)}>
+                <IconProfile isHovered={isHovered} />
+              </div>
               <div
                 className={stls.buttonPhone}
                 onClick={() => navigate(PATH.Map)}
