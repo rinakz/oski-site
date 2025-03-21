@@ -13,7 +13,10 @@ export default function Community() {
           flexDirection: "column",
         }}
       >
-        <div style={{ width: "initial" }} className={stls.servicesContainer}>
+        <div
+          style={{ width: "initial", height: "-webkit-fill-available" }}
+          className={stls.servicesContainer}
+        >
           <div>
             <div className={stls.serviceTitle}>
               <h1>Все сибы на одной карте!</h1>
