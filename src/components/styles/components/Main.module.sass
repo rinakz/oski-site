@@ -39,7 +39,6 @@
         @include m.media(tablet, laptop, phone)
             font-size: 18px
 
-
 .iconsContainer
     display: flex
     width: 50%
@@ -49,6 +48,16 @@
         width: 100%
         height: auto
 
+.iconFirst
+    height: fit-content
+    width: 50%
+    & img
+        width: 100%
+        animation: fadeIn 1s ease-in-out
+        @include m.media(phone)
+            transform: translateX(-100%)
+            animation: slideInFromRight 1s ease-in-out forwards
+
 .iconSecond
     display: flex
     flex-direction: column
@@ -56,15 +65,31 @@
     gap: 30px
     width: 40%
     cursor: pointer
-    svg
+    justify-content: space-between
+    & img
+        animation: fadeIn 1s ease-in-out
         width: -webkit-fill-available
         height: auto
+        @include m.media(phone)
+            transform: translateX(100%)
+            animation: slideInFromRight 1s ease-in-out forwards
 
 .mainText
     font-size: 120px
     @include m.media(laptop)
-        font-size: 90px
+        font-size: 76px
     @include m.media(tablet)
         font-size: 68px
     @include m.media(phone)
-        font-size: 58px
+        font-size: 56px
+
+@keyframes fadeIn
+    from
+        opacity: 0
+
+    to
+        opacity: 1
+
+@keyframes slideInFromRight
+    to
+        transform: translateX(0)

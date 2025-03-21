@@ -5,6 +5,7 @@ import { IconSibkaHeader } from "../icons/IconSibkaHeader";
 import stls from "./styles/components/Header.module.sass";
 import { useNavigate } from "react-router-dom";
 import { IconPlacemark } from "../icons/IconPlacemark";
+import { PATH } from "../routes/PATH";
 
 export function Header() {
   const navigate = useNavigate();
@@ -14,18 +15,18 @@ export function Header() {
       <AppBar className={stls.appbar} component="nav">
         <Toolbar className={stls.toolbar}>
           <div
-            onClick={() => navigate("/")}
+            onClick={() => navigate(PATH.Home)}
             style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
           >
             <IconSibkaHeader />
-            <h1 style={{ fontSize: "60px" }}>OSKI</h1>
+            <h1 style={{ fontSize: "46px" }}>SIBINATOR</h1>
           </div>
 
           <Box sx={{ display: { sm: "block" } }}>
             <div style={{ display: "flex", gap: "8px" }}>
               <div
                 className={stls.buttonPhone}
-                onClick={() => navigate("/chat")}
+                onClick={() => navigate(PATH.Map)}
               >
                 <IconPlacemark />
               </div>

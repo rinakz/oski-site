@@ -1,17 +1,16 @@
 import { Button } from "@mui/material";
-import Contacts from "./Contacts";
-import Service from "./Service";
-import Photos from "./Photo";
 import { LayoutPage } from "./general/LayoutPage";
 import { IconOskiMain } from "../icons/IconOskiMain";
 import { IconPawMain } from "../icons/IconPawMain";
 import { IconPawButton } from "../icons/IconPawButton";
 import stls from "./styles/components/Main.module.sass";
-import { IconImageMain } from "../icons/IconImageMain";
-import { IconImageMainSecons } from "../icons/IconImageMainSecons";
 import { IconPawImageMain } from "../icons/IconPawImageMain";
+import { useNavigate } from "react-router-dom";
+import { PATH } from "../routes/PATH";
 
 function Main() {
+  const navigate = useNavigate()
+
   return (
     <>
       <LayoutPage>
@@ -31,25 +30,22 @@ function Main() {
               </div>
             </div>
 
-            <h2 className={stls.friend}>Твой лучший друг :)</h2>
-            <a href="#contacts">
-              <Button className={stls.button}>
-                ПОЗНАКОМИТЬСЯ <IconPawButton />
+            <h2 className={stls.friend}>Твой сосед :)</h2>
+              <Button onClick={() => navigate(PATH.Auth)} className={stls.button}>
+                ПРИСОЕДИНИТЬСЯ <IconPawButton />
               </Button>
-            </a>
           </div>
           <div className={stls.iconsContainer}>
-            <IconImageMain />
+            <div className={stls.iconFirst}>
+              <img src="/first-main.png" alt="first-main"/>
+            </div>
             <div className={stls.iconSecond}>
-              <IconImageMainSecons />
+              <img src="/second-main.png" alt="second-main" />
               <IconPawImageMain />
             </div>
           </div>
         </div>
       </LayoutPage>
-      <Service />
-      <Photos />
-      <Contacts />
     </>
   );
 }

@@ -5,7 +5,7 @@ import ChatMap from "./ChatMap";
 
 const CODE = "сибики";
 
-export default function Chat() {
+export default function Map() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
