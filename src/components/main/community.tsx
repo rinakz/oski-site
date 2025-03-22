@@ -2,8 +2,13 @@ import { LayoutPage } from "../general/LayoutPage";
 import Footer from "../Footer";
 import stls from "../styles/components/Main.module.sass";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { IconPawButton } from "../../icons/IconPawButton";
+import { PATH } from "../../routes/PATH";
 
 export default function Community() {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null); // Создаем реф для элемента
 
@@ -46,7 +51,11 @@ export default function Community() {
             <div className={stls.serviceTitle}>
               <h1 style={{ minWidth: "40%" }}>Все сибы на одной карте!</h1>
               <img
-                style={{ width: "-webkit-fill-available", maxHeight: "400px" }}
+                style={{
+                  width: "-webkit-fill-available",
+                  maxHeight: "280px",
+                  maxWidth: "450px",
+                }}
                 src="speaking.png"
                 alt="community"
               />
@@ -57,6 +66,19 @@ export default function Community() {
               <br />
               📌 Находите единомышленников и создавайте крепкие дружеские связи
             </p>
+          </div>
+          <div className={stls.mainContainer}>
+            <Button
+              style={{
+                position: "relative",
+                marginTop: "60px",
+                float: "right",
+              }}
+              onClick={() => navigate(PATH.Auth)}
+              className={stls.button}
+            >
+              ПРИСОЕДИНИТЬСЯ <IconPawButton />
+            </Button>
           </div>
         </div>
         <Footer />

@@ -35,7 +35,7 @@ export default function Friends() {
         <div>
           <div className={stls.serviceTitle}>
             <h1>Найди друзей для своего сиба-ину!</h1>
-            <img width="230px" src="friends.png" alt="friends" />
+            <img src="second-main.png" alt="coffee" />
           </div>
           <div>
             <p>

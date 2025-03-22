@@ -95,19 +95,30 @@
     height: auto
     img
         width: 300px
+        max-width: 300px
     h1
         font-size: 48px
     p
-        font-size: 28px
+        font-size: 24px
+    @include m.media(tablet)
+        h1
+            font-size: 36px
+        p
+            font-size: 18px
+        img
+            max-width: 200px
+            max-height: 250px
+
     @include m.media(phone)
         padding: 20px
         border-radius: 20px,
         img
-            width: 230px
+            max-width: 200px
+            max-height: 250px
         h1
             font-size: 32px
         p
-            font-size: 20px
+            font-size: 18px
             line-height: 28px
 
 @keyframes fadeIn

@@ -12,7 +12,14 @@ function Main() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "60px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "60px",
+        height: "100%",
+      }}
+    >
       <div className={stls.mainContainer}>
         <Stories />
         <Button onClick={() => navigate(PATH.Auth)} className={stls.button}>
