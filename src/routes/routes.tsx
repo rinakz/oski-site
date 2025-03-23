@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Routes as MainRouter, Route, BrowserRouter } from "react-router-dom";
-import { PATH } from "./path";
+import { Path } from "~routes/index";
 import { Header } from "~components/header/header";
 import Main from "~components/main/main";
 import Map from "~components/map/map";
@@ -13,10 +13,10 @@ export const Routes: FC = () => {
       <Header />
       <main>
         <MainRouter>
-          <Route path={PATH.Home} element={<Main />} />
-          <Route path={PATH.Map} element={<Map />} />
-          <Route path={PATH.Auth} element={<Auth />} />
-          <Route path={PATH.Profile} element={<Profile />} />
+          <Route path={Path.Home} element={<Main />} />
+          <Route path={Path.Map} element={<Map />} />
+          <Route path={Path.Auth} element={<Auth />} />
+          <Route path={Path.Profile} element={<Profile />} />
         </MainRouter>
       </main>
     </BrowserRouter>

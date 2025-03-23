@@ -1,4 +1,4 @@
-export enum PATH {
+export enum Path {
   Home = "/",
   Auth = "/auth",
   Login = "/login",

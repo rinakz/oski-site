@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
 import { LayoutPage } from "~components/general/layout-page";
-import { PATH } from "~routes/path";
 import { IconPawButton } from "~assets/icons/IconPawButton";
 import Footer from "~components/footer/footer";
+import { Path } from "~routes/index";
 
 export default function Community() {
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ export default function Community() {
                 margin: "60px 0 0 0",
                 float: "right",
               }}
-              onClick={() => navigate(PATH.Auth)}
+              onClick={() => navigate(Path.Auth)}
               className={stls.button}
             >
               ПРИСОЕДИНИТЬСЯ <IconPawButton />
