@@ -1,12 +1,12 @@
 import { Button } from "@mui/material";
-import { IconPawButton } from "../../icons/IconPawButton";
-import stls from "../styles/components/Main.module.sass";
-import { useNavigate } from "react-router-dom";
-import { PATH } from "../../routes/PATH";
+import stls from "~styles/components/Main.module.sass";
+import { useNavigate } from "react-router";
 import Friends from "./friends";
 import Coffee from "./cofee";
 import Community from "./community";
 import { Stories } from "./stories";
+import { IconPawButton } from "~assets/icons/IconPawButton";
+import { PATH } from "~routes/path";
 
 function Main() {
   const navigate = useNavigate();

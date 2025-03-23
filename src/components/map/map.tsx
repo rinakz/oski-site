@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
-import { IconRight } from "../icons/IconRight";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import ChatMap from "./ChatMap";
+import GeneralMap from "./general-map";
+import { IconRight } from "~assets/icons/IconRight";
 
 const CODE = "сибики";
 
@@ -35,7 +35,7 @@ export default function Map() {
   return (
     <>
       {success ? (
-        <ChatMap />
+        <GeneralMap />
       ) : (
         <div
           style={{

@@ -1,11 +1,11 @@
-import { LayoutPage } from "../general/LayoutPage";
-import Footer from "../Footer";
-import stls from "../styles/components/Main.module.sass";
+import stls from "~styles/components/Main.module.sass";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { IconPawButton } from "../../icons/IconPawButton";
-import { PATH } from "../../routes/PATH";
+import { useNavigate } from "react-router";
+import { LayoutPage } from "~components/general/layout-page";
+import { PATH } from "~routes/path";
+import { IconPawButton } from "~assets/icons/IconPawButton";
+import Footer from "~components/footer/footer";
 
 export default function Community() {
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ export default function Community() {
             <Button
               style={{
                 position: "relative",
-                marginTop: "60px",
+                margin: "60px 0 0 0",
                 float: "right",
               }}
               onClick={() => navigate(PATH.Auth)}

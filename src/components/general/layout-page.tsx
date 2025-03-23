@@ -1,6 +1,6 @@
-import useWindowSize from "../../hooks/useWindowSize";
 import { useState, useEffect } from "react";
-import stls from "../styles/components/LayoutPage.module.sass";
+import stls from "~styles/components/LayoutPage.module.sass";
+import useWindowSize from "~hooks/use-window-size";
 
 type TypeLayoutPageProps = {
   children: any;

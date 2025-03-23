@@ -1,7 +1,7 @@
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
-import jsonData from "../address.json";
+import jsonData from "../../address.json";
 
-export default function ChatMap() {
+export default function GeneralMap() {
   return (
     <div
       style={{

@@ -1,11 +1,9 @@
-import ReactDOM from "react-dom/client";
-import "../src/components/styles/base.sass";
-import { App } from "./App";
+import { createRoot } from "react-dom/client";
+import "./styles/base.sass";
+import { App } from "app";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-const Index = () => {
-  return <App />;
-};
-root.render(<Index />);
+const container = document.getElementById("root")!;
+
+const root = createRoot(container);
+
+root.render(<App />);

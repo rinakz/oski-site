@@ -1,6 +1,6 @@
-import { LayoutPage } from "../general/LayoutPage";
 import { Checkbox } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
+import { LayoutPage } from "~components/general/layout-page";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
