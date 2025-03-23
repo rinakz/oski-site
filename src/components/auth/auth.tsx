@@ -1,5 +1,4 @@
 // import { Checkbox } from "@mui/material";
-// import Maps from "./maps";
 // import { useForm } from "react-hook-form";
 // import { AuthFormType } from "./types";
 import { LayoutPage } from "~components/general/layout-page";
