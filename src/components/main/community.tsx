@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
 import { LayoutPage } from "../general/layout-page";
-import { PATH } from "../../routes";
 import { IconPawButton } from "../../assets/icons/IconPawButton";
 import Footer from "../footer/footer";
+import { PATH } from "../../constants/path";
 
 export default function Community() {
   const navigate = useNavigate();

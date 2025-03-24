@@ -4,10 +4,10 @@ import { Toolbar } from "@mui/material";
 import stls from "~styles/components/Header.module.sass";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
-import { PATH } from "../../routes";
 import { IconSibkaHeader } from "../../assets/icons/IconSibkaHeader";
 import { IconProfile } from "../../assets/icons/IconProfile";
 import { IconPlacemark } from "../../assets/icons/IconPlacemark";
+import { PATH } from "../../constants/path";
 
 export function Header() {
   const navigate = useNavigate();

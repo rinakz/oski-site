@@ -5,8 +5,8 @@ import Friends from "./friends";
 import Coffee from "./cofee";
 import Community from "./community";
 import { Stories } from "./stories";
-import { PATH } from "../../routes";
 import { IconPawButton } from "../../assets/icons/IconPawButton";
+import { PATH } from "../../constants/path";
 
 function Main() {
   const navigate = useNavigate();
