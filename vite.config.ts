@@ -11,12 +11,8 @@ export default defineConfig({
   build: {
     outDir: "../dist",
   },
-  optimizeDeps: {
-    esbuildOptions: {},
-  },
 
   plugins: [
-    tsconfigPaths(),
     react(),
     svgr({
       svgrOptions: {
@@ -27,11 +23,6 @@ export default defineConfig({
       include: "**/*.svg",
     }),
   ],
-  server: {
-    hmr: { overlay: false },
-    open: true,
-    port: 4041,
-  },
   resolve: {
     alias: {
       "~assets": path.resolve(__dirname, "./src/assets"),
