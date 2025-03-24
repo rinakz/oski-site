@@ -11,4 +11,6 @@ export type AuthFormType = {
   sibaname: string;
   icon: string;
   location: string;
+  gender: string;
+  email: string;
 };
