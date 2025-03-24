@@ -11,6 +11,10 @@ export default defineConfig({
     outDir: "../dist",
   },
 
+  server: {
+    allowedHosts: ["shiba-inu.pro"],
+  },
+
   plugins: [react(), svgr()],
   resolve: {
     alias: {
