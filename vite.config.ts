@@ -12,26 +12,10 @@ export default defineConfig({
     outDir: "../dist",
   },
 
-  plugins: [
-    react(),
-    svgr({
-      svgrOptions: {
-        // для оптимизации и удаления stroke/fill у svg
-        // необходима установка @svgr/plugin-svgo
-        plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],
-      },
-      include: "**/*.svg",
-    }),
-  ],
+  plugins: [react(), svgr()],
   resolve: {
     alias: {
-      "~assets": path.resolve(__dirname, "./src/assets"),
       "~styles": path.resolve(__dirname, "./src/styles"),
-      "~components": path.resolve(__dirname, "./src/components"),
-      "~constants": path.resolve(__dirname, "./src/constants"),
-      "~hooks": path.resolve(__dirname, "./src/hooks"),
-      "~routes": path.resolve(__dirname, "./src/routes"),
-      "~types": path.resolve(__dirname, "./src/types"),
     },
   },
   css: {

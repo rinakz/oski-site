@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Navigate } from "react-router-dom";
-import { Path } from "~routes/index";
+import { PATH } from "./path";
 
 export interface ProtectedRouteProps {
   isAuth: boolean;
@@ -12,7 +12,7 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
   isAuth,
 }) => {
   if (!isAuth) {
-    return <Navigate to={Path.Login} />;
+    return <Navigate to={PATH.Login} />;
   } else {
     return <>{children}</>;
   }

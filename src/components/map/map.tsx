@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import GeneralMap from "./general-map";
-import { IconRight } from "~assets/icons/IconRight";
+import { IconRight } from "../../assets/icons/IconRight";
 
 const CODE = "сибики";
 

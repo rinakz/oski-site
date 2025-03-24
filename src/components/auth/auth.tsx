@@ -1,9 +1,10 @@
 // import { Checkbox } from "@mui/material";
 // import { useForm } from "react-hook-form";
 // import { AuthFormType } from "./types";
-import { LayoutPage } from "~components/general/layout-page";
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import { LayoutPage } from "../general/layout-page";
+
+// const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export const Auth = () => {
   // const {

@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client";
 import "./styles/base.sass";
-import { Routes } from "~routes/routes";
+import { App } from "./app";
 
 const container = document.getElementById("root")!;
 
 const root = createRoot(container);
 
-root.render(<Routes />);
+root.render(<App />);

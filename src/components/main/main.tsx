@@ -5,8 +5,8 @@ import Friends from "./friends";
 import Coffee from "./cofee";
 import Community from "./community";
 import { Stories } from "./stories";
-import { IconPawButton } from "~assets/icons/IconPawButton";
-import { Path } from "~routes/index";
+import { PATH } from "../../routes";
+import { IconPawButton } from "../../assets/icons/IconPawButton";
 
 function Main() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function Main() {
     >
       <div className={stls.mainContainer}>
         <Stories />
-        <Button onClick={() => navigate(Path.Auth)} className={stls.button}>
+        <Button onClick={() => navigate(PATH.Auth)} className={stls.button}>
           ПРИСОЕДИНИТЬСЯ <IconPawButton />
         </Button>
       </div>

@@ -1,7 +1,7 @@
-export const Path = {
-  Home: "/",
-  Auth: "/auth",
-  Login: "/login",
-  Map: "/map",
-  Profile: "/profile",
-};
+export enum PATH {
+  Home = "/",
+  Auth = "/auth",
+  Login = "/login",
+  Map = "/map",
+  Profile = "/profile",
+}

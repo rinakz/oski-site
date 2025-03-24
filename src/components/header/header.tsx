@@ -4,10 +4,10 @@ import { Toolbar } from "@mui/material";
 import stls from "~styles/components/Header.module.sass";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
-import { IconSibkaHeader } from "~assets/icons/IconSibkaHeader";
-import { IconPlacemark } from "~assets/icons/IconPlacemark";
-import { IconProfile } from "~assets/icons/IconProfile";
-import { Path } from "~routes/index";
+import { PATH } from "../../routes";
+import { IconSibkaHeader } from "../../assets/icons/IconSibkaHeader";
+import { IconProfile } from "../../assets/icons/IconProfile";
+import { IconPlacemark } from "../../assets/icons/IconPlacemark";
 
 export function Header() {
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ export function Header() {
       >
         <Toolbar className={stls.toolbar}>
           <div
-            onClick={() => navigate(Path.Home)}
+            onClick={() => navigate(PATH.Home)}
             style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
           >
             <IconSibkaHeader />
@@ -45,13 +45,13 @@ export function Header() {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 className={stls.buttonProfile}
-                onClick={() => navigate(Path.Profile)}
+                onClick={() => navigate(PATH.Profile)}
               >
                 <IconProfile isHovered={isHovered} />
               </div>
               <div
                 className={stls.buttonPhone}
-                onClick={() => navigate(Path.Map)}
+                onClick={() => navigate(PATH.Map)}
               >
                 <IconPlacemark />
               </div>

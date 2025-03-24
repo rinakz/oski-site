@@ -2,10 +2,10 @@ import stls from "~styles/components/Main.module.sass";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
-import { LayoutPage } from "~components/general/layout-page";
-import { IconPawButton } from "~assets/icons/IconPawButton";
-import Footer from "~components/footer/footer";
-import { Path } from "~routes/index";
+import { LayoutPage } from "../general/layout-page";
+import { PATH } from "../../routes";
+import { IconPawButton } from "../../assets/icons/IconPawButton";
+import Footer from "../footer/footer";
 
 export default function Community() {
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ export default function Community() {
                 margin: "60px 0 0 0",
                 float: "right",
               }}
-              onClick={() => navigate(Path.Auth)}
+              onClick={() => navigate(PATH.Auth)}
               className={stls.button}
             >
               ПРИСОЕДИНИТЬСЯ <IconPawButton />
