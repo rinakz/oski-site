@@ -25,11 +25,12 @@ export const FirstStep: FC<FirstStep> = ({ control, setActiveStep }) => {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "24px",
+          gap: "40px",
           background: "#FFFCF5",
           borderRadius: "12px",
           padding: "24px",
           height: "100%",
+          alignItems: "center",
         }}
       >
         <div className={stls.fieldContainer}>
@@ -44,7 +45,6 @@ export const FirstStep: FC<FirstStep> = ({ control, setActiveStep }) => {
         </div>
 
         <div className={stls.fieldContainer}>
-          гендер
           <Controller
             control={control}
             name="gender"
@@ -73,7 +73,6 @@ export const FirstStep: FC<FirstStep> = ({ control, setActiveStep }) => {
           />
         </div>
         <div className={stls.fieldContainer}>
-          иконка на карте
           <Controller
             control={control}
             name="icon"

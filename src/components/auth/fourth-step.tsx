@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { YMaps, Map, Placemark, SearchControl } from "@pbe/react-yandex-maps";
-import { FC, useState } from "react";
+import { FC, MouseEvent, useState } from "react";
 import { IconPawButton } from "../../assets/icons/IconPawButton";
 import stls from "~styles/components/Auth.module.sass";
 import { Control, Controller } from "react-hook-form";
@@ -13,6 +13,24 @@ interface FourthStep {
 
 export const FourthStep: FC<FourthStep> = ({ control, setActiveStep }) => {
   const [coordinates, setCoordinates] = useState([55.75, 37.57]); // Начальные координаты
+  const [error, setError] = useState<string | null>(null);
+
+  const getLocation = (event: MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setCoordinates([position.coords.latitude, position.coords.longitude]);
+      },
+      (error) => {
+        setError(error.message);
+      }
+    );
+  };
 
   function onActionTickComplete(e: any) {
     const projection = e.get("target").options.get("projection");
@@ -30,6 +48,7 @@ export const FourthStep: FC<FourthStep> = ({ control, setActiveStep }) => {
         height: "100%",
       }}
     >
+      <button onClick={getLocation}>определить местоположение</button>
       <div
         style={{
           display: "flex",
