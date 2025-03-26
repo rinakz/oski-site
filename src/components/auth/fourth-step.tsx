@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { YMaps, Map, Placemark, SearchControl } from "@pbe/react-yandex-maps";
-import { FC, MouseEvent, useState } from "react";
+import { FC, MouseEvent, useRef, useState } from "react";
 import { IconPawButton } from "../../assets/icons/IconPawButton";
 import stls from "~styles/components/Auth.module.sass";
 import { Control, Controller } from "react-hook-form";
@@ -14,6 +14,7 @@ interface FourthStep {
 export const FourthStep: FC<FourthStep> = ({ control, setActiveStep }) => {
   const [coordinates, setCoordinates] = useState([55.75, 37.57]); // Начальные координаты
   const [error, setError] = useState<string | null>(null);
+  const mapRef = useRef<any | null>(null);
 
   const getLocation = (event: MouseEvent<HTMLElement>) => {
     event.preventDefault();
@@ -25,6 +26,16 @@ export const FourthStep: FC<FourthStep> = ({ control, setActiveStep }) => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setCoordinates([position.coords.latitude, position.coords.longitude]);
+        if (location && position.coords.latitude) {
+          mapRef.current.setCenter(
+            [position.coords.latitude, position.coords.longitude],
+            14,
+            {
+              duration: 500, // Optional animation duration
+              timingFunction: "ease-in-out", // Optional timing function
+            }
+          );
+        }
       },
       (error) => {
         setError(error.message);
@@ -61,8 +72,10 @@ export const FourthStep: FC<FourthStep> = ({ control, setActiveStep }) => {
         }}
       >
         <div className={stls.fieldContainer}>выставьте свою метку на карте</div>
+        ааааа
         <YMaps query={{ apikey: "8c4bcb7f-e5cd-4ecc-b94c-e669d323affe" }}>
           <Map
+            instanceRef={mapRef}
             onActionTickComplete={onActionTickComplete}
             modules={["control.ZoomControl"]}
             defaultState={{
