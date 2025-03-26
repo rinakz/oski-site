@@ -1,4 +1,4 @@
-import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
+import { YMaps, Map, Placemark, Clusterer } from "@pbe/react-yandex-maps";
 import jsonData from "../../address.json";
 
 export default function GeneralMap() {
@@ -22,18 +22,20 @@ export default function GeneralMap() {
           }}
           modules={["control.ZoomControl"]}
         >
-          {jsonData.map((el, idx) => (
-            <Placemark
-              key={idx}
-              modules={["geoObject.addon.balloon"]}
-              options={{
-                iconLayout: "default#image",
-                iconImageHref: el.image,
-                iconImageSize: [42, 42],
-              }}
-              {...el}
-            />
-          ))}
+          <Clusterer>
+            {jsonData.map((el, idx) => (
+              <Placemark
+                key={idx}
+                modules={["geoObject.addon.balloon"]}
+                options={{
+                  iconLayout: "default#image",
+                  iconImageHref: el.image,
+                  iconImageSize: [42, 42],
+                }}
+                {...el}
+              />
+            ))}
+          </Clusterer>
         </Map>
       </YMaps>
     </div>
