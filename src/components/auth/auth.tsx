@@ -68,7 +68,7 @@ export const Auth = () => {
               </div>
               <Box className={stls.stepperContainer}>
                 <Stepper>
-                  {[1, 2, 3].map((label, idx) => (
+                  {[1, 2, 3].map((label) => (
                     <Step
                       className={stls.step}
                       style={{
