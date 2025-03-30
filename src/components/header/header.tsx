@@ -8,10 +8,23 @@ import { IconSibkaHeader } from "../../assets/icons/IconSibkaHeader";
 import { IconProfile } from "../../assets/icons/IconProfile";
 import { IconPlacemark } from "../../assets/icons/IconPlacemark";
 import { PATH } from "../../constants/path";
+import { useLocation } from "react-router-dom";
+
+const isOpenHeaderPaths: string[] = [PATH.Home];
 
 export function Header() {
   const navigate = useNavigate();
-  const [isHovered, setIsHovered] = useState(false);
+  const [isOpenHeader, setIsOpenHeader] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (isOpenHeaderPaths.includes(pathname)) {
+      setIsOpenHeader(true);
+    } else {
+      setIsOpenHeader(false);
+    }
+  }, [pathname]);
+
   const [scroll, setScroll] = useState(0);
 
   const handleScroll = () => {
@@ -25,45 +38,45 @@ export function Header() {
   }, []);
 
   return (
-    <div className={stls.header}>
-      <AppBar
-        className={scroll ? stls.appbarScroll : stls.appbar}
-        component="nav"
-      >
-        <Toolbar className={stls.toolbar}>
-          <div
-            onClick={() => navigate(PATH.Home)}
-            style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+    <>
+      {isOpenHeader && (
+        <div className={stls.header}>
+          <AppBar
+            className={scroll ? stls.appbarScroll : stls.appbar}
+            component="nav"
           >
-            <IconSibkaHeader />
-            <h1 style={{ fontSize: "46px" }}>SIBINATOR</h1>
-          </div>
+            <Toolbar className={stls.toolbar}>
+              <div
+                onClick={() => navigate(PATH.Home)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  cursor: "pointer",
+                }}
+              >
+                <IconSibkaHeader />
+                <h1 style={{ fontSize: "46px" }}>SIBINATOR</h1>
+              </div>
 
-          <Box sx={{ display: { sm: "block" } }}>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <div
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                className={stls.buttonProfile}
-                onClick={() => navigate(PATH.Profile)}
-              >
-                <IconProfile isHovered={isHovered} />
-              </div>
-              <div
-                className={stls.buttonPhone}
-                onClick={() => navigate(PATH.Map)}
-              >
-                <IconPlacemark />
-              </div>
-              {/* <div className={stls.buttonPhone}>
+              <Box sx={{ display: { sm: "block" } }}>
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <div
+                    className={stls.buttonPhone}
+                    onClick={() => navigate(PATH.Login)}
+                  >
+                    <IconPlacemark />
+                  </div>
+                  {/* <div className={stls.buttonPhone}>
                 <a color="inherit" href="tel:+79660060596">
                   <IconPhoneButton />
                 </a>
               </div> */}
-            </div>
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </div>
+                </div>
+              </Box>
+            </Toolbar>
+          </AppBar>
+        </div>
+      )}
+    </>
   );
 }

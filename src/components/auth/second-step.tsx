@@ -1,8 +1,12 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Control, Controller } from "react-hook-form";
 import { IconRight } from "../../assets/icons/IconRight";
-import stls from "~styles/components/Auth.module.sass";
+import stls from "./auth.module.sass";
 import { AuthFormType } from "./types";
+import { Button, Input } from "../../ui";
+import { IconEyeClose } from "../../assets/icons/IconEyeClose";
+import { IconEyeOpen } from "../../assets/icons/IconEyeOpen";
+import { IconButton } from "../../ui/icon-button/icon-button";
 
 interface SecondStep {
   control: Control<AuthFormType>;
@@ -10,69 +14,71 @@ interface SecondStep {
 }
 
 export const SecondStep: FC<SecondStep> = ({ control, setActiveStep }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "24px",
         justifyContent: "space-between",
         height: "100%",
+        gap: "40px",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "24px",
-          background: "#FFFCF5",
-          borderRadius: "12px",
-          padding: "24px",
-          height: "100%",
-        }}
-      >
-        <div className={stls.fieldContainer}>
-          никнейм
-          <Controller
-            control={control}
-            name="nickname"
-            render={({ field }) => (
-              <input onChange={(e) => field.onChange(e)} value={field.value} />
-            )}
-          />
-        </div>
-        <div className={stls.fieldContainer}>
-          e-mail
-          <Controller
-            control={control}
-            name="email"
-            render={({ field }) => (
-              <input onChange={(e) => field.onChange(e)} value={field.value} />
-            )}
-          />
-        </div>
-        <div className={stls.fieldContainer}>
-          пароль
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => (
-              <input onChange={(e) => field.onChange(e)} value={field.value} />
-            )}
-          />
-        </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <Controller
+          control={control}
+          name="nickname"
+          render={({ field }) => (
+            <Input
+              label="Ваш никнейм"
+              onChange={(e) => field.onChange(e)}
+              value={field.value}
+              placeholder="Введите ваш никнейм"
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="password"
+          render={({ field }) => (
+            <Input
+              label="Пароль"
+              placeholder="Введите пароль"
+              value={field.value}
+              onChange={(e) => field.onChange(e)}
+              icon={
+                <div
+                  className={stls.eyeIcon}
+                  onClick={() => setShowPassword((prev) => !prev)}
+                >
+                  {showPassword ? <IconEyeClose /> : <IconEyeOpen />}
+                </div>
+              }
+            />
+          )}
+        />
       </div>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "end",
-          cursor: "pointer",
-        }}
-      >
-        <div onClick={() => setActiveStep(2)}>
-          <IconRight />
-        </div>
+      <div style={{ display: "flex", gap: "16px" }}>
+        <IconButton
+          onClick={() => setActiveStep(1)}
+          variant="secondary"
+          size="large"
+          icon={
+            <span style={{ display: "flex", transform: "rotate(-180deg)" }}>
+              <IconRight />
+            </span>
+          }
+        />
+        <Button
+          style={{ width: "100%" }}
+          iconRight={<IconRight />}
+          onClick={() => setActiveStep(3)}
+          size="large"
+        >
+          Продолжить
+        </Button>
       </div>
     </div>
   );

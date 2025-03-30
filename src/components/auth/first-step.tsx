@@ -1,10 +1,15 @@
 import { FC } from "react";
 import { Control, Controller } from "react-hook-form";
-import MaleIcon from "@mui/icons-material/Male";
-import FemaleIcon from "@mui/icons-material/Female";
 import { IconRight } from "../../assets/icons/IconRight";
-import stls from "~styles/components/Auth.module.sass";
+import stls from "./auth.module.sass";
 import { AuthFormType } from "./types";
+import { Button, Input } from "../../ui";
+import { IconButton } from "../../ui/icon-button/icon-button";
+import { IconMale } from "../../assets/icons/IconMale";
+import { IconFemale } from "../../assets/icons/IconFemale";
+import { IconSibka } from "../../assets/icons/IconSibka";
+import { IconSibkaWhite } from "../../assets/icons/IconSibkaWhite";
+import { IconSibkaBlack } from "../../assets/icons/IconSibkaBlack";
 
 interface FirstStep {
   control: Control<AuthFormType>;
@@ -19,115 +24,80 @@ export const FirstStep: FC<FirstStep> = ({ control, setActiveStep }) => {
         flexDirection: "column",
         justifyContent: "space-between",
         height: "100%",
+        gap: "40px",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "40px",
-          background: "#FFFCF5",
-          borderRadius: "12px",
-          padding: "24px",
-          height: "100%",
-          alignItems: "center",
-        }}
-      >
-        <div className={stls.fieldContainer}>
-          кличка
-          <Controller
-            control={control}
-            name="sibaname"
-            render={({ field }) => (
-              <input onChange={(e) => field.onChange(e)} value={field.value} />
-            )}
-          />
-        </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <Controller
+          control={control}
+          name="sibaname"
+          render={({ field }) => (
+            <Input
+              label="Кличка Вашего питомца"
+              onChange={(e) => field.onChange(e)}
+              value={field.value}
+              placeholder="Введите кличку"
+              description="Больше питомцев, можно добавить в личном кабинете"
+            />
+          )}
+        />
 
-        <div className={stls.fieldContainer}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
           <Controller
             control={control}
             name="gender"
             render={({ field }) => (
-              <div style={{ display: "flex", gap: "12px" }}>
-                <MaleIcon
-                  sx={{
-                    cursor: "pointer",
-                    width: "60px",
-                    height: "60px",
-                    fill: field.value === "male" ? "#5279C9" : "#C6D3ED",
-                  }}
+              <div style={{ display: "flex", gap: "20px" }}>
+                <IconButton
+                  variant={field.value === "male" ? "pressed" : "primary"}
                   onClick={() => field.onChange("male")}
+                  size="large"
+                  icon={<IconMale />}
                 />
-                <FemaleIcon
-                  sx={{
-                    cursor: "pointer",
-                    width: "60px",
-                    height: "60px",
-                    fill: field.value === "female" ? "#FF644E" : "#F6BDB5",
-                  }}
+                <IconButton
+                  variant={field.value === "female" ? "pressed" : "primary"}
                   onClick={() => field.onChange("female")}
+                  size="large"
+                  icon={<IconFemale />}
                 />
               </div>
             )}
           />
-        </div>
-        <div className={stls.fieldContainer}>
           <Controller
             control={control}
             name="icon"
             render={({ field }) => (
-              <div style={{ display: "flex", gap: "12px", cursor: "pointer" }}>
-                <img
-                  style={{
-                    border:
-                      field.value === "default" ? "4px solid #8BC87F" : "none",
-                  }}
+              <div style={{ display: "flex", gap: "20px", cursor: "pointer" }}>
+                <IconButton
+                  size="large"
+                  variant={field.value === "default" ? "pressed" : "primary"}
                   onClick={() => field.onChange("default")}
-                  src="/sibka.png"
-                  alt="default"
-                  width={60}
-                  height={60}
+                  icon={<IconSibka />}
                 />
-                <img
-                  style={{
-                    border:
-                      field.value === "white" ? "4px solid #8BC87F" : "none",
-                  }}
+                <IconButton
+                  size="large"
+                  variant={field.value === "white" ? "pressed" : "primary"}
                   onClick={() => field.onChange("white")}
-                  src="/sibka-wht.png"
-                  alt="white"
-                  width={60}
-                  height={60}
+                  icon={<IconSibkaWhite />}
                 />
-                <img
-                  style={{
-                    border:
-                      field.value === "black" ? "4px solid #8BC87F" : "none",
-                  }}
+                <IconButton
+                  size="large"
+                  variant={field.value === "black" ? "pressed" : "primary"}
                   onClick={() => field.onChange("black")}
-                  src="/sibka-blk.png"
-                  alt="black"
-                  width={60}
-                  height={60}
+                  icon={<IconSibkaBlack />}
                 />
               </div>
             )}
           />
         </div>
       </div>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "end",
-          cursor: "pointer",
-        }}
+      <Button
+        iconRight={<IconRight />}
+        onClick={() => setActiveStep(2)}
+        size="large"
       >
-        <div onClick={() => setActiveStep(1)}>
-          <IconRight />
-        </div>
-      </div>
+        Продолжить
+      </Button>
     </div>
   );
 };

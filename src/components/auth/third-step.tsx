@@ -2,8 +2,12 @@ import { Checkbox } from "@mui/material";
 import { FC } from "react";
 import { Control, Controller } from "react-hook-form";
 import { IconRight } from "../../assets/icons/IconRight";
-import stls from "~styles/components/Auth.module.sass";
 import { AuthFormType } from "./types";
+import { Button, Input } from "../../ui";
+import { IconButton } from "../../ui/icon-button/icon-button";
+import { IconPawButton } from "../../assets/icons/IconPawButton";
+import { useNavigate } from "react-router-dom";
+import { PATH } from "../../constants/path";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -13,80 +17,81 @@ interface ThirdStep {
 }
 
 export const ThirdStep: FC<ThirdStep> = ({ control, setActiveStep }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "24px",
         justifyContent: "space-between",
         height: "100%",
+        gap: "40px",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "24px",
-          background: "#FFFCF5",
-          borderRadius: "12px",
-          padding: "24px",
-          height: "100%",
-        }}
-      >
-        <div style={{ display: "flex", gap: "12px" }}>
-          <div className={stls.fieldContainer}>
-            имя пользователя в телеграмм
-            <Controller
-              control={control}
-              name="tgname"
-              render={({ field }) => (
-                <input
-                  onChange={(e) => field.onChange(e)}
-                  value={field.value.name}
-                />
-              )}
-            />
-          </div>
-        </div>
-        <div className={stls.fieldContainer}>
-          показывать имя
+      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           <Controller
             control={control}
             name="tgname"
             render={({ field }) => (
-              <Checkbox
-                {...label}
-                value={field.value.show}
-                checked={field.value.show}
+              <Input
+                label="Имя пользователя в телеграм"
                 onChange={(e) => field.onChange(e)}
-                color="default"
+                value={field.value.name}
+                placeholder="Введите ваш никнейм в телеграм"
               />
             )}
           />
+          <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+            <Controller
+              control={control}
+              name="tgname"
+              render={({ field }) => (
+                <Checkbox
+                  {...label}
+                  value={field.value.show}
+                  checked={field.value.show}
+                  onChange={(e) => field.onChange(e)}
+                  color="default"
+                />
+              )}
+            />
+            <span style={{ fontSize: "14px" }}>Показывать имя</span>
+          </div>
         </div>
-        <div className={stls.fieldContainer}>
-          чат в телеграмм
-          <Controller
-            control={control}
-            name="chat"
-            render={({ field }) => (
-              <input onChange={(e) => field.onChange(e)} value={field.value} />
-            )}
-          />
-        </div>
+        <Controller
+          control={control}
+          name="chat"
+          render={({ field }) => (
+            <Input
+              label="Чат в телеграм"
+              onChange={(e) => field.onChange(e)}
+              value={field.value}
+              placeholder="Укажите чат в телеграм"
+              description="Укажите чат, в котором Вас смогут найти другие пользователи, если не хотите, чтобы с Вами связывались через личные сообщения"
+            />
+          )}
+        />
       </div>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "end",
-          cursor: "pointer",
-        }}
-      >
-        <div onClick={() => setActiveStep(3)}>
-          <IconRight />
-        </div>
+      <div style={{ display: "flex", gap: "16px" }}>
+        <IconButton
+          onClick={() => setActiveStep(2)}
+          variant="secondary"
+          size="large"
+          icon={
+            <span style={{ display: "flex", transform: "rotate(-180deg)" }}>
+              <IconRight />
+            </span>
+          }
+        />
+        <Button
+          style={{ width: "100%" }}
+          iconRight={<IconPawButton />}
+          size="large"
+        >
+          Зарегистрироваться
+        </Button>
       </div>
     </div>
   );

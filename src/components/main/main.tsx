@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import stls from "~styles/components/Main.module.sass";
 import { useNavigate } from "react-router";
 import Friends from "./friends";
@@ -7,6 +6,7 @@ import Community from "./community";
 import { Stories } from "./stories";
 import { IconPawButton } from "../../assets/icons/IconPawButton";
 import { PATH } from "../../constants/path";
+import { Button } from "../../ui/button/button";
 
 function Main() {
   const navigate = useNavigate();
@@ -22,9 +22,6 @@ function Main() {
     >
       <div className={stls.mainContainer}>
         <Stories />
-        <Button onClick={() => navigate(PATH.Auth)} className={stls.button}>
-          ПРИСОЕДИНИТЬСЯ <IconPawButton />
-        </Button>
       </div>
       <Friends />
       <Coffee />
