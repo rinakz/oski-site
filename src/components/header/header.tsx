@@ -16,6 +16,7 @@ export function Header() {
   const navigate = useNavigate();
   const [isOpenHeader, setIsOpenHeader] = useState(false);
   const { pathname } = useLocation();
+  const isAuthUser = undefined;
 
   useEffect(() => {
     if (isOpenHeaderPaths.includes(pathname)) {
@@ -39,7 +40,7 @@ export function Header() {
 
   return (
     <>
-      {isOpenHeader && (
+      {isOpenHeader && isAuthUser && (
         <div className={stls.header}>
           <AppBar
             className={scroll ? stls.appbarScroll : stls.appbar}

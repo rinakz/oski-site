@@ -1,5 +1,6 @@
 export enum PATH {
   Home = "/",
+  Tour = "/tour",
   Auth = "/auth",
   Login = "/login",
   Map = "/map",

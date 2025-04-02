@@ -5,15 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "vite --host --force",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 1",
-    "lint-has-warnings": "eslint \"**/*.ts[x]\" --max-warnings=0",
-    "lint-all": "eslint --fix .",
-    "lint-cache": "eslint --cache --fix .",
-    "ts:check": "tsc --skipLibCheck --noEmit",
-    "preview": "vite preview",
-    "prepare": "husky install",
-    "prettier all": "npx prettier . --write"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "tsc && vite build"
   },
   "repository": {
     "type": "git",
